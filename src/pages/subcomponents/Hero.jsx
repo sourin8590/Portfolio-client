@@ -41,7 +41,9 @@ const Hero = () => {
               "FullStack Developer",
               "MERN Developer",
               "FrontEnd Developer",
+              "Backend Developer",
               "Coder",
+              "Machine Learning Enthusiast",
             ]}
             loop={50}
             cursor
