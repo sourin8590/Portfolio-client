@@ -21,7 +21,7 @@ const Home = () => {
       <AnimatedSection delay={0.1}>
         <Portfolio />
       </AnimatedSection>
-      <AnimatedSection delay={0.1}>
+      <AnimatedSection delay={0.1} direction="right">
         <MyApps />
       </AnimatedSection>
       <AnimatedSection delay={0.1}>
