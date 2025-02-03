@@ -12,19 +12,19 @@ const Home = () => {
     <article className="px-5 mt-10 sm:mt-14 md:mt-16 lg:mt-24 xl:mt-32 sm:mx-auto w-full max-w-[1100px] flex flex-col gap-14">
       <Hero />
       <Timeline />
-      <AnimatedSection delay={0.1}>
+      <AnimatedSection delay={0.3}>
         <About />
       </AnimatedSection>
       <AnimatedSection delay={0.3} direction="right">
         <Skills />
       </AnimatedSection>
-      <AnimatedSection delay={0.1}>
+      <AnimatedSection delay={0.3}>
         <Portfolio />
       </AnimatedSection>
-      <AnimatedSection delay={0.1} direction="right">
+      <AnimatedSection delay={0.5} direction="right">
         <MyApps />
       </AnimatedSection>
-      <AnimatedSection delay={0.1}>
+      <AnimatedSection delay={0.5}>
         <Contact />
       </AnimatedSection>
     </article>
