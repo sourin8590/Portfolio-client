@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { serverUrl } from "@/lib/utils";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -7,7 +8,7 @@ const MyApps = () => {
 
   useEffect(() => {
     const getMyApps = async () => {
-      const res = await axios.get(`https://portfolio-server-0rxb.onrender.com/api/v1/application/getall`, {
+      const res = await axios.get(`${serverUrl}/api/v1/application/getall`, {
         withCredentials: true,
       });
       // console.log(res.data)

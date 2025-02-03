@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { serverUrl } from "@/lib/utils";
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -15,7 +16,7 @@ const Contact = () => {
     setLoading(true);
     await axios
       .post(
-        "https://portfolio-server-0rxb.onrender.com/api/v1/message/send",
+        `${serverUrl}/api/v1/message/send`,
         { senderName, subject, message },
         {
           withCredentials: true,

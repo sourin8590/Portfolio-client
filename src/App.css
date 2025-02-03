@@ -46,7 +46,6 @@
   animation: spin-clouds 100s ease infinite;
 }
 
-
 ::-webkit-scrollbar {
   width: 15px;
 }
@@ -96,4 +95,71 @@
       0 0 2px rgb(150, 150, 150), 0 0 5px rgb(150, 150, 150),
       0 0 20px rgb(150, 150, 150);
   }
+}
+
+/* App container */
+.app {
+  text-align: center;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Fullscreen loader */
+.loading-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+  transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+/* Vanish animation */
+.vanish {
+  transform: scale(2);
+  opacity: 0;
+}
+
+/* Loader container */
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Spinner animation */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading percentage text */
+.loading-text {
+  font-size: 24px;
+  color: white;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Main content */
+.content {
+  padding: 20px;
 }

@@ -1,3 +1,4 @@
+import { serverUrl } from "@/lib/utils";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -17,7 +18,7 @@ const ProjectView = () => {
   useEffect(() => {
     const getProject = async () => {
       await axios
-        .get(`https://portfolio-server-0rxb.onrender.com/api/v1/project/get/${id}`, {
+        .get(`${serverUrl}/api/v1/project/get/${id}`, {
           withCredentials: true,
         })
         .then((res) => {

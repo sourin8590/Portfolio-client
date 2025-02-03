@@ -1,3 +1,4 @@
+import { serverUrl } from "@/lib/utils";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import {
@@ -12,7 +13,7 @@ const Timeline = () => {
   useEffect(() => {
     const getMyTimeline = async () => {
       const res = await axios.get(
-        `https://portfolio-server-0rxb.onrender.com/api/v1/timeline/getall`,
+        `${serverUrl}/api/v1/timeline/getall`,
         { withCredentials: true }
       );
       setTimeline(res.data.timeLine);

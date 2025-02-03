@@ -1,3 +1,4 @@
+import { serverUrl } from "@/lib/utils";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -7,7 +8,7 @@ const About = () => {
   useEffect(() => {
     const getMyProfile = async () => {
       const res = await axios.get(
-        `https://portfolio-server-0rxb.onrender.com/api/v1/user/portfolio/me`,
+        `${serverUrl}/api/v1/user/portfolio/me`,
         { withCredentials: true }
       );
       setUser(res.data.user);
