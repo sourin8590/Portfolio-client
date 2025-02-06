@@ -46,7 +46,7 @@ const About = () => {
           </div>
           <div className="flex justify-center flex-col tracking-[1px] text-xl gap-5">
             <p>
-              I&apos;m is Sourin. I will graduate in Computer Science and
+              I&apos;m Sourin. I will graduate in Computer Science and
               Engineering from RKMGEC on 2025. I work as a full stack web
               developer, also learning React-Native to built beautiful apps and Machine Learning Enthusiast. My hobbies include solving DSA problems, watching series, playing
               video games, and occasionally cooking.
