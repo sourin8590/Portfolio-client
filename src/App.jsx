@@ -9,8 +9,8 @@ import { Toaster } from "react-hot-toast";
 import CursorBackground from "./pages/subcomponents/CursorEffect";
 import Starfield from "./pages/subcomponents/BackgroundStars";
 import Favicon from "react-favicon";
-
-
+import axios from "axios";
+import { serverUrl } from "./lib/utils";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -18,18 +18,31 @@ function App() {
   const [vanish, setVanish] = useState(false);
 
   useEffect(() => {
-    // Faster loading progress
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setVanish(true); // Start vanish animation
-          setTimeout(() => setLoading(false), 50); // Faster vanish effect
-          return prev;
-        }
-        return prev + 10; // Increase progress faster
-      });
-    }, 50); // Faster interval
+    let interval;
+
+    const getMyProfile = async () => {
+      try {
+        await axios.get(`${serverUrl}/api/v1/user/portfolio/me`, {
+          withCredentials: true,
+        });
+
+        // API fetch done, set progress to 100%
+        setProgress(100);
+        setTimeout(() => {
+          setLoading(false);
+          setVanish(true);
+        }, 500);
+      } catch (err) {
+        console.error("Error fetching profile:", err);
+      }
+    };
+
+    // Start a smooth progress animation while waiting for API
+    interval = setInterval(() => {
+      setProgress((prev) => (prev < 95 ? prev + 5 : prev)); // Stops at 95%
+    }, 100);
+
+    getMyProfile().finally(() => clearInterval(interval)); // Ensures the interval stops
 
     return () => clearInterval(interval);
   }, []);
@@ -41,14 +54,14 @@ function App() {
         <div className={`loading-screen ${vanish ? "vanish" : ""}`}>
           <div className="loader">
             <div className="spinner"></div>
-            <p className="loading-text">{progress}%</p>
+            <p className="loading-text">{Math.floor(progress)}%</p>
           </div>
         </div>
       ) : (
         <>
           <CursorBackground />
           <Starfield
-            speedFactor={0.1} 
+            speedFactor={0.1}
             backgroundColor="black"
             starColor={[255, 255, 255]}
             starCount={5000}
