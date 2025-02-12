@@ -9,7 +9,7 @@ import AnimatedSection from "@/animations/AnimatedSection";
 
 const Home = () => {
   return (
-    <article className="px-5 mt-10 sm:mt-14 md:mt-16 lg:mt-24 xl:mt-32 sm:mx-auto w-full max-w-[1100px] flex flex-col gap-14">
+    <article className="px-5 mt-10 sm:mt-14 md:mt-16 lg:mt-24 xl:mt-32 sm:mx-auto w-full max-w-[1100px] flex flex-col gap-14 overflow-hidden">
       <Hero />
       <Timeline />
       <AnimatedSection delay={0.3}>
